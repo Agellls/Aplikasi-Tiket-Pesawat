@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_3/ui/pages/get_started_page.dart';
 import '../../shared/theme.dart';
 
 class SplashPage extends StatefulWidget {
@@ -14,7 +13,6 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
-    // TODO: implement initState
     Timer(
       Duration(seconds: 3),
       () {
