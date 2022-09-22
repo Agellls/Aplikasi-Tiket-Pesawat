@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_3/ui/pages/home_page.dart';
 import 'package:flutter_application_3/ui/widgets/custom_bottom_navigation_item.dart';
 import '../../shared/theme.dart';
 
@@ -7,6 +8,10 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Widget BuildContext() {
+      return HomePage();
+    }
+
     Widget customBottomNavigation() {
       return Align(
         alignment: Alignment.bottomCenter,
@@ -42,7 +47,7 @@ class MainPage extends StatelessWidget {
       backgroundColor: kBackgroundColor,
       body: Stack(
         children: [
-          Text("Main Page"),
+          BuildContext(),
           customBottomNavigation(),
         ],
       ),
