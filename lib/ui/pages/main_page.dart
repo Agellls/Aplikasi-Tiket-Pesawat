@@ -13,31 +13,50 @@ class MainPage extends StatelessWidget {
     }
 
     Widget customBottomNavigation() {
-      return Align(
-        alignment: Alignment.bottomCenter,
-        child: Container(
-          width: double.infinity,
-          height: 60,
-          margin: EdgeInsets.only(
-            bottom: 30,
-            left: defaultMargin,
-            right: defaultMargin,
+      return Container(
+        child: Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            width: double.infinity,
+            height: 60,
+            margin: EdgeInsets.only(
+              bottom: 20,
+              left: defaultMargin,
+              right: defaultMargin,
+            ),
+            decoration: BoxDecoration(
+              color: kWhiteColor,
+              borderRadius: BorderRadius.circular(18),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                CustomBottomNavigationItem(
+                  imageUrl: 'assets/icon_home.png',
+                  isSelected: true,
+                ),
+                CustomBottomNavigationItem(imageUrl: 'assets/icon_booking.png'),
+                CustomBottomNavigationItem(imageUrl: 'assets/icon_card.png'),
+                CustomBottomNavigationItem(
+                    imageUrl: 'assets/icon_settings.png'),
+              ],
+            ),
           ),
-          decoration: BoxDecoration(
-            color: kWhiteColor,
-            borderRadius: BorderRadius.circular(18),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              CustomBottomNavigationItem(
-                imageUrl: 'assets/icon_home.png',
-                isSelected: true,
-              ),
-              CustomBottomNavigationItem(imageUrl: 'assets/icon_booking.png'),
-              CustomBottomNavigationItem(imageUrl: 'assets/icon_card.png'),
-              CustomBottomNavigationItem(imageUrl: 'assets/icon_settings.png'),
-            ],
+        ),
+      );
+    }
+
+    Widget spaceBottom() {
+      return Container(
+        child: Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            margin: EdgeInsets.symmetric(horizontal: defaultMargin),
+            height: 40,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: kBackgroundColor,
+            ),
           ),
         ),
       );
@@ -48,6 +67,7 @@ class MainPage extends StatelessWidget {
       body: Stack(
         children: [
           BuildContext(),
+          spaceBottom(),
           customBottomNavigation(),
         ],
       ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_3/ui/widgets/destination_cart.dart';
+import 'package:flutter_application_3/ui/widgets/destination_tile.dart';
 import '../../shared/theme.dart';
 
 class HomePage extends StatelessWidget {
@@ -54,67 +56,93 @@ class HomePage extends StatelessWidget {
 
     Widget popularDestination() {
       return Container(
-        margin: EdgeInsets.only(top: 30),
-        child: Row(
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              DestinationCard(
+                name: "Lake Ciliwung",
+                city: "Tangerang",
+                imageUrl: 'assets/image_destination1.png',
+                rating: 4.8,
+              ),
+              DestinationCard(
+                name: "White Houses",
+                city: "Spain",
+                imageUrl: 'assets/image_destination2.png',
+                rating: 4.7,
+              ),
+              DestinationCard(
+                name: "Hill Heyo",
+                city: "Monaco",
+                imageUrl: 'assets/image_destination3.png',
+                rating: 4.8,
+              ),
+              DestinationCard(
+                name: "Menarra",
+                city: "Japan",
+                imageUrl: 'assets/image_destination4.png',
+                rating: 5.0,
+              ),
+              DestinationCard(
+                name: "Payung Teduh",
+                city: "Singapore",
+                imageUrl: 'assets/image_destination5.png',
+                rating: 4.8,
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    Widget newDestinationTile() {
+      return Container(
+        margin: EdgeInsets.only(
+          top: 10,
+          left: defaultMargin,
+          right: defaultMargin,
+          bottom: 100,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              height: 323,
-              width: 200,
-              margin: EdgeInsets.only(left: defaultMargin),
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(18),
-                color: kWhiteColor,
+            Text(
+              "New This Year",
+              style: blackTextStyle.copyWith(
+                fontWeight: semiBold,
+                fontSize: 18,
               ),
-              child: Column(
-                children: [
-                  Container(
-                    height: 220,
-                    width: 180,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(18),
-                      color: kWhiteColor,
-                      image: DecorationImage(
-                        image: AssetImage('assets/image_destination1.png'),
-                      ),
-                    ),
-                    child: Align(
-                      alignment: Alignment.topRight,
-                      child: Container(
-                        height: 30,
-                        width: 55,
-                        decoration: BoxDecoration(
-                          color: kWhiteColor,
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(18),
-                          ),
-                        ),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(right: 2),
-                              height: 20,
-                              width: 20,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage('assets/icon_star.png'),
-                                ),
-                              ),
-                            ),
-                            Text(
-                              "4.8",
-                              style: blackTextStyle.copyWith(
-                                  fontWeight: medium, fontSize: 15),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+            ),
+            DestinationTile(
+              name: "Danau Beratan",
+              city: "Singaraja",
+              imageUrl: 'assets/image_destination6.png',
+              rating: 4.5,
+            ),
+            DestinationTile(
+              name: "Sydney Opera",
+              city: "Australia",
+              imageUrl: 'assets/image_destination7.png',
+              rating: 4.7,
+            ),
+            DestinationTile(
+              name: "Roma",
+              city: "Italy",
+              imageUrl: 'assets/image_destination8.png',
+              rating: 4.8,
+            ),
+            DestinationTile(
+              name: "Payung Teduh",
+              city: "Singapore",
+              imageUrl: 'assets/image_destination9.png',
+              rating: 4.5,
+            ),
+            DestinationTile(
+              name: "Hill Hey",
+              city: "Monaco",
+              imageUrl: 'assets/image_destination10.png',
+              rating: 4.7,
             ),
           ],
         ),
@@ -125,6 +153,7 @@ class HomePage extends StatelessWidget {
       children: [
         header(),
         popularDestination(),
+        newDestinationTile(),
       ],
     );
   }

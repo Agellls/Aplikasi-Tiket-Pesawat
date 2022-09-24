@@ -54,7 +54,7 @@ class SignUpPage extends StatelessWidget {
       Widget summitButton() {
         return CustomButton(
           title: 'Get Started',
-          margin: EdgeInsets.only(top: 30),
+          margin: EdgeInsets.only(top: 15),
           onPressed: () {
             Navigator.pushNamed(context, '/bonus');
           },
@@ -87,8 +87,7 @@ class SignUpPage extends StatelessWidget {
       return Container(
         alignment: Alignment.center,
         margin: EdgeInsets.only(
-          top: 50,
-          bottom: 73,
+          top: 15,
         ),
         child: Text(
           "Terms and Conditions",
