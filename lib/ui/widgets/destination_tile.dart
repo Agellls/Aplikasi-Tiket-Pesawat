@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../shared/theme.dart';
+import '../pages/detail_page.dart';
 
 class DestinationTile extends StatelessWidget {
   final String name;
@@ -15,64 +16,74 @@ class DestinationTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(top: 8),
-      padding: EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        color: kWhiteColor,
-        borderRadius: BorderRadius.circular(18),
-      ),
-      child: Row(
-        children: [
-          Container(
-            margin: EdgeInsets.only(right: 10),
-            height: 70,
-            width: 70,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(18),
-              image: DecorationImage(
-                image: AssetImage(imageUrl),
-              ),
-            ),
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => DetailPage(),
           ),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  name,
-                  style: blackTextStyle.copyWith(
-                    fontWeight: medium,
-                    fontSize: 18,
-                  ),
+        );
+      },
+      child: Container(
+        margin: EdgeInsets.only(top: 8),
+        padding: EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          color: kWhiteColor,
+          borderRadius: BorderRadius.circular(18),
+        ),
+        child: Row(
+          children: [
+            Container(
+              margin: EdgeInsets.only(right: 10),
+              height: 70,
+              width: 70,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(18),
+                image: DecorationImage(
+                  image: AssetImage(imageUrl),
                 ),
-                Text(
-                  city,
-                  style: greyTextStyle.copyWith(
-                    fontWeight: light,
-                  ),
-                )
-              ],
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(right: 2),
-            height: 20,
-            width: 20,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/icon_star.png'),
               ),
             ),
-          ),
-          Text(
-            rating.toString(),
-            style: blackTextStyle.copyWith(
-              fontWeight: medium,
-              fontSize: 15,
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    name,
+                    style: blackTextStyle.copyWith(
+                      fontWeight: medium,
+                      fontSize: 18,
+                    ),
+                  ),
+                  Text(
+                    city,
+                    style: greyTextStyle.copyWith(
+                      fontWeight: light,
+                    ),
+                  )
+                ],
+              ),
             ),
-          ),
-        ],
+            Container(
+              margin: EdgeInsets.only(right: 2),
+              height: 20,
+              width: 20,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/icon_star.png'),
+                ),
+              ),
+            ),
+            Text(
+              rating.toString(),
+              style: blackTextStyle.copyWith(
+                fontWeight: medium,
+                fontSize: 15,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
