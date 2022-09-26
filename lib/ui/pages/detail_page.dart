@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_3/shared/theme.dart';
+import 'package:flutter_application_3/ui/pages/choose_seat_page.dart';
 import 'package:flutter_application_3/ui/widgets/custom_button.dart';
 import 'package:flutter_application_3/ui/widgets/interest_item.dart';
 import 'package:flutter_application_3/ui/widgets/photo_item.dart';
@@ -248,7 +249,14 @@ class DetailPage extends StatelessWidget {
                   //note Booking
                   CustomButton(
                     title: 'Book Now',
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ChooseSeatPage(),
+                        ),
+                      );
+                    },
                     width: 170,
                   )
                 ],
