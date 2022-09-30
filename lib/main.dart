@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_3/cubit/page_cubit.dart';
 import 'package:flutter_application_3/ui/pages/bonus_page.dart';
 import 'package:flutter_application_3/ui/pages/get_started_page.dart';
 import 'package:flutter_application_3/ui/pages/sign_up_page.dart';
 import 'package:flutter_application_3/ui/pages/main_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'ui/pages/splash_page.dart';
 
@@ -13,15 +15,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      routes: {
-        '/': (context) => SplashPage(),
-        '/get-started': (context) => GetStartedPage(),
-        '/sign-up': (context) => SignUpPage(),
-        '/bonus': (context) => BonusPage(),
-        '/main': (context) => MainPage(),
-      },
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => PageCubit(),
+        )
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        routes: {
+          '/': (context) => SplashPage(),
+          '/get-started': (context) => GetStartedPage(),
+          '/sign-up': (context) => SignUpPage(),
+          '/bonus': (context) => BonusPage(),
+          '/main': (context) => MainPage(),
+        },
+      ),
     );
   }
 }
