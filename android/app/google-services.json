@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "353225400963",
+    "project_id": "airplane-8567e",
+    "storage_bucket": "airplane-8567e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:353225400963:android:98aa86c95b50906a97b1b6",
+        "android_client_info": {
+          "package_name": "com.agellls.flutter_application_3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "353225400963-06gv1643829efjstkb4311vgquag1fog.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAn-SYfx3zddvDBByU_jhjlRqcfN_onw1E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "353225400963-06gv1643829efjstkb4311vgquag1fog.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
