@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_3/cubit/auth_cubit.dart';
 import 'package:flutter_application_3/cubit/page_cubit.dart';
 import 'package:flutter_application_3/ui/pages/bonus_page.dart';
 import 'package:flutter_application_3/ui/pages/get_started_page.dart';
@@ -25,7 +26,10 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => PageCubit(),
-        )
+        ),
+        BlocProvider(
+          create: (context) => AuthCubit(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
