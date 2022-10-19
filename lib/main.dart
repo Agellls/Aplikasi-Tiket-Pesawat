@@ -10,6 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'ui/pages/splash_page.dart';
 
+// Main Function
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
+        // Routes for page navigation
         routes: {
           '/': (context) => SplashPage(),
           '/get-started': (context) => GetStartedPage(),
