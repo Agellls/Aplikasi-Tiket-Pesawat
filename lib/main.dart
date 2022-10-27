@@ -4,6 +4,7 @@ import 'package:flutter_application_3/cubit/auth_cubit.dart';
 import 'package:flutter_application_3/cubit/page_cubit.dart';
 import 'package:flutter_application_3/ui/pages/bonus_page.dart';
 import 'package:flutter_application_3/ui/pages/get_started_page.dart';
+import 'package:flutter_application_3/ui/pages/sign_in_page.dart';
 import 'package:flutter_application_3/ui/pages/sign_up_page.dart';
 import 'package:flutter_application_3/ui/pages/main_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
           '/': (context) => SplashPage(),
           '/get-started': (context) => GetStartedPage(),
           '/sign-up': (context) => SignUpPage(),
+          '/sign-in': (context) => SignInPage(),
           '/bonus': (context) => BonusPage(),
           '/main': (context) => MainPage(),
         },

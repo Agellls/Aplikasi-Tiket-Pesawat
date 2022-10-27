@@ -5,6 +5,24 @@ import 'package:flutter_application_3/services/user_service.dart';
 class AuthService {
   FirebaseAuth _auth = FirebaseAuth.instance;
 
+  Future<UserModels> signIn({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      UserModels user =
+          await UserService().getUserById(userCredential.user!.uid);
+      return user;
+    } catch (e) {
+      throw e;
+    }
+  }
+
   Future<UserModels> signUp(
       {required String email,
       required String password,
@@ -24,6 +42,14 @@ class AuthService {
       await UserService().setUser(user);
 
       return user;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  Future<void> signOut() async {
+    try {
+      _auth.signOut();
     } catch (e) {
       throw e;
     }

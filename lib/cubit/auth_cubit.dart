@@ -2,11 +2,29 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_application_3/models/user_model.dart';
 import 'package:flutter_application_3/services/auth_service.dart';
+import 'package:flutter_application_3/services/user_service.dart';
 
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
+
+  void signIn({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      emit(AuthLoading());
+
+      UserModels user = await AuthService().signIn(
+        email: email,
+        password: password,
+      );
+      emit(AuthSuccess(user));
+    } catch (e) {
+      emit(AuthFailed(e.toString()));
+    }
+  }
 
   void signUp(
       {required String email,
@@ -19,6 +37,25 @@ class AuthCubit extends Cubit<AuthState> {
       UserModels user = await AuthService()
           .signUp(email: email, password: password, name: name, hobby: hobby);
 
+      emit(AuthSuccess(user));
+    } catch (e) {
+      emit(AuthFailed(e.toString()));
+    }
+  }
+
+  void signOut() async {
+    try {
+      emit(AuthLoading());
+      await AuthService().signOut();
+      emit(AuthInitial());
+    } catch (e) {
+      emit(AuthFailed(e.toString()));
+    }
+  }
+
+  void getCurrentUser(String id) async {
+    try {
+      UserModels user = await UserService().getUserById(id);
       emit(AuthSuccess(user));
     } catch (e) {
       emit(AuthFailed(e.toString()));
